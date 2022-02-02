@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <title>ZampanioSim!!!</title>
+  <script>
+    window.onload = () => {
+      console.log("JR NOTE: test");
+
+    }
+  </script>
+
+  <style>
+    .door:hover{
+      filter: contrast(140%);
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body style="background: url(images/background.jpg);">
+  <div style="position: relative;  display: block; width: 600px; margin-left: auto; margin-right: auto" id="container">
+    <img style="display: block; width: 600px;" id="room" src="images/empty.PNG">
+    <img class="door"  style="display: block; width: 75px; position: absolute; top: 20px; left: 300px; " id="north"
+      src="images/northDoor.PNG">
+    <img class="door"  style="display: block; width: 75px; position: absolute; bottom: 0px; left: 300px;" id="south" src="images/southDoor.PNG">
+    <img class="door"  style="display: block; width: 40px;  position: absolute; top: 293px; right: 0px;" id="east" src="images/eastDoor.PNG">
+    <img class="door" style="display:  block; position: absolute; top: 293px; left: 0px;  width: 40px;" id="west" src="images/westDoor.PNG">
+
+  </div>
+</body>
+
+</html>
