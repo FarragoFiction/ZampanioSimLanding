@@ -3,14 +3,57 @@
 <head>
   <title>ZampanioSim!!!</title>
   <script>
-    window.onload = () => {
-      console.log("JR NOTE: test");
+    const clickAudio = new Audio("audio/web_SoundFX_254286__jagadamba__mechanical-switch.mp3");
+    const musicAudio = new Audio("audio/slide.mp3");
+    musicAudio.volume = 0.25;
+    const doorAudio = new Audio("audio/close_door_1.mp3");
 
+    const zampanio_key = "lp_route";
+
+    window.onload = () => {
+      window.onclick = () => {
+        clickAudio.play();
+        if (musicAudio.pause) {
+          musicAudio.play();
+        }
+      }
+
+      if(localStorage[zampanio_key]){
+        const south = document.querySelector("#south");
+        const east = document.querySelector("#east");
+        east.setAttribute("style","display: block; width: 40px;  position: absolute; top: 293px; right: 0px;");
+        //Not Yet Complete
+        //south.setAttribute("style","display: block; width: 75px; position: absolute; bottom: 0px; left: 300px;");
+      }
+    }
+
+    const moveToLocation = (location)=>{
+      doorAudio.play();
+      setTimeout(()=>{
+        window.location.href = location;
+      },500)
+    }
+
+    const goSouth = () => {
+      moveToLocation("http://farragofiction.com/ZampanioSimSouth");
+    }
+
+    const goOther = () => {
+      moveToLocation("http://farragofiction.com/SettlersFromTheWest");
+
+    }
+
+    const goEast = () => {
+      moveToLocation("http://farragofiction.com/ZampanioSimEast");
+    }
+
+    const goNorth = () => {
+      moveToLocation("http://farragofiction.com/ZampanioSimNorth");
     }
   </script>
 
   <style>
-    .door:hover{
+    .door:hover {
       filter: contrast(140%);
       cursor: pointer;
     }
@@ -20,11 +63,15 @@
 <body style="background: url(images/background.jpg);">
   <div style="position: relative;  display: block; width: 600px; margin-left: auto; margin-right: auto" id="container">
     <img style="display: block; width: 600px;" id="room" src="images/empty.PNG">
-    <img class="door"  style="display: block; width: 75px; position: absolute; top: 20px; left: 300px; " id="north"
+    <img onclick="goNorth()" class="door"
+      style="display: block; width: 75px; position: absolute; top: 20px; left: 300px; " id="north"
       src="images/northDoor.PNG">
-    <img class="door"  style="display: block; width: 75px; position: absolute; bottom: 0px; left: 300px;" id="south" src="images/southDoor.PNG">
-    <img class="door"  style="display: block; width: 40px;  position: absolute; top: 293px; right: 0px;" id="east" src="images/eastDoor.PNG">
-    <img class="door" style="display:  block; position: absolute; top: 293px; left: 0px;  width: 40px;" id="west" src="images/westDoor.PNG">
+    <img onclick="goSouth()" class="door" style="display: none; width: 75px; position: absolute; bottom: 0px; left: 300px;" id="south"
+      src="images/southDoor.PNG">
+    <img onclick="goEast()" class="door" style="display: none; width: 40px;  position: absolute; top: 293px; right: 0px;" id="east"
+      src="images/eastDoor.PNG">
+    <img onclick="goOther()" class="door" style="display:  block; position: absolute; top: 293px; left: 0px;  width: 40px;" id="west"
+      src="images/westDoor.PNG">
 
   </div>
 </body>
