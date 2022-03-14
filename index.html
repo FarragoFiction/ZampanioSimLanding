@@ -18,20 +18,20 @@
         }
       }
 
-      if(localStorage[zampanio_key]){
+      if (localStorage[zampanio_key]) {
         const south = document.querySelector("#south");
         const east = document.querySelector("#east");
-        east.setAttribute("style","display: block; width: 40px;  position: absolute; top: 293px; right: 0px;");
+        east.setAttribute("style", "display: block; width: 40px;  position: absolute; top: 293px; right: 0px;");
         //Not Yet Complete
         //south.setAttribute("style","display: block; width: 75px; position: absolute; bottom: 0px; left: 300px;");
       }
     }
 
-    const moveToLocation = (location)=>{
+    const moveToLocation = (location) => {
       doorAudio.play();
-      setTimeout(()=>{
+      setTimeout(() => {
         window.location.href = location;
-      },500)
+      }, 500)
     }
 
     const goSouth = () => {
@@ -50,6 +50,14 @@
     const goNorth = () => {
       moveToLocation("http://farragofiction.com/ZampanioSimNorth");
     }
+
+    const goSouthWest = () => {
+      if (new Date().getDay() === 2) {//tuesday should be sbahj day
+        moveToLocation("http://farragofiction.com/SBAHJGirlfriend/");
+      } else {
+        moveToLocation("http://farragofiction.com/NagaGirlfriend/");
+      }
+    }
   </script>
 
   <style>
@@ -66,11 +74,17 @@
     <img onclick="goNorth()" class="door"
       style="display: block; width: 75px; position: absolute; top: 20px; left: 300px; " id="north"
       src="images/northdoor.PNG">
-    <img onclick="goSouth()" class="door" style="display: none; width: 75px; position: absolute; bottom: 0px; left: 300px;" id="south"
+    <img onclick="goSouth()" class="door"
+      style="display: none; width: 75px; position: absolute; bottom: 0px; left: 300px;" id="south"
       src="images/southdoor.PNG">
-    <img onclick="goEast()" class="door" style="display: none; width: 40px;  position: absolute; top: 293px; right: 0px;" id="east"
+    <img onclick="goEast()" class="door"
+      style="display: none; width: 40px;  position: absolute; top: 293px; right: 0px;" id="east"
       src="images/eastdoor.PNG">
-    <img onclick="goOther()" class="door" style="display:  block; position: absolute; top: 293px; left: 0px;  width: 40px;" id="west"
+    <img onclick="goOther()" class="door"
+      style="display:  block; position: absolute; top: 293px; left: 0px;  width: 40px;" id="west"
+      src="images/westdoor.PNG">
+    <img onclick="goSouthWest()" class="door"
+      style="display:  block; position: absolute; bottom: 13px; left: 12px;  width: 40px;" id="west"
       src="images/westdoor.PNG">
 
   </div>
