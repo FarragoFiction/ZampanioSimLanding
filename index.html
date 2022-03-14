@@ -2,6 +2,11 @@
 
 <head>
   <title>ZampanioSim!!!</title>
+  <style>
+    .visible{
+      background: #033476;
+    }
+  </style>
   <script>
     const clickAudio = new Audio("audio/web_SoundFX_254286__jagadamba__mechanical-switch.mp3");
     const musicAudio = new Audio("audio/slide.mp3");
@@ -10,7 +15,26 @@
 
     const zampanio_key = "lp_route";
 
+    function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
     window.onload = () => {
+      if(getParameterByName("seerOfVoid", null)){
+        const images = document.querySelectorAll("img");
+        for(let img of images){
+          img.classList.add("visible");
+        }
+
+      }
       window.onclick = () => {
         clickAudio.play();
         if (musicAudio.pause) {
