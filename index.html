@@ -75,6 +75,14 @@
       moveToLocation("http://farragofiction.com/ZampanioSimNorth");
     }
 
+    const goCenter = () => {
+      moveToLocation("http://farragofiction.com/TheTruthAboutAlt");
+    }
+
+    const goSouthEast = () => {
+      moveToLocation("http://farragofiction.com/ATranscript");
+    }
+
     const goSouthWest = () => {
       if (new Date().getDay() === 2) {//tuesday should be sbahj day
         moveToLocation("http://farragofiction.com/SBAHJGirlfriend/");
@@ -109,6 +117,14 @@
       src="images/westdoor.PNG">
     <img onclick="goSouthWest()" class="door"
       style="display:  block; position: absolute; bottom: 13px; left: 12px;  width: 40px;" id="west"
+      src="images/westdoor.PNG">
+
+      <img onclick="goCenter()" class="door"
+      style="display:  block; position: absolute; bottom: 221px; left: 279px;  width: 40px;" id="west"
+      src="images/westdoor.PNG">
+
+      <img onclick="goSouthEast()" class="door"
+      style="display:  block; position: absolute; bottom: 12px; right: 12px;  width: 40px;" id="west"
       src="images/westdoor.PNG">
 
   </div>
