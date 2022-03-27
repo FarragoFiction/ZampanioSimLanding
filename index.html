@@ -83,6 +83,10 @@
       moveToLocation("/ATranscript");
     }
 
+    const goCenterSouthEast = () => {
+      moveToLocation("/SecurityLog/cctv.html");
+    }
+
     const goSouthWest = () => {
       if (new Date().getDay() === 2) {//tuesday should be sbahj day
         moveToLocation("/SBAHJGirlfriend/");
@@ -125,6 +129,10 @@
 
       <img onclick="goSouthEast()" class="door"
       style="display:  block; position: absolute; bottom: 12px; right: 12px;  width: 40px;" id="west"
+      src="images/westdoor.PNG">
+
+      <img onclick="goCenterSouthEast()" class="door"
+      style="display:  block; position: absolute; bottom: 85px; right: 85px;  width: 40px;" id="west"
       src="images/westdoor.PNG">
 
   </div>
