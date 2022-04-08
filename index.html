@@ -43,10 +43,10 @@
       }
 
       if (localStorage[zampanio_key]) {
-        const south = document.querySelector("#south");
-        const east = document.querySelector("#east");
-        east.setAttribute("style", "display: block; width: 40px;  position: absolute; top: 293px; right: 0px;");
-        south.setAttribute("style","display: block; width: 75px; position: absolute; bottom: 0px; left: 300px;");
+        const doors = document.querySelectorAll(".door");
+        for(let door of doors){
+          door.style.display="block"
+        }
       }
     }
 
@@ -119,19 +119,19 @@
       style="display:  block; position: absolute; top: 293px; left: 0px;  width: 40px;" id="west"
       src="images/westdoor.PNG">
     <img onclick="goSouthWest()" class="door"
-      style="display:  block; position: absolute; bottom: 13px; left: 12px;  width: 40px;" id="west"
+      style="display:  none; position: absolute; bottom: 13px; left: 12px;  width: 40px;" id="west"
       src="images/westdoor.PNG">
 
       <img onclick="goCenter()" class="door"
-      style="display:  block; position: absolute; bottom: 221px; left: 279px;  width: 40px;" id="west"
+      style="display:  none; position: absolute; bottom: 221px; left: 279px;  width: 40px;" id="west"
       src="images/westdoor.PNG">
 
       <img onclick="goSouthEast()" class="door"
-      style="display:  block; position: absolute; bottom: 12px; right: 12px;  width: 40px;" id="west"
+      style="display:  none; position: absolute; bottom: 12px; right: 12px;  width: 40px;" id="west"
       src="images/westdoor.PNG">
 
       <img onclick="goCenterSouthEast()" class="door"
-      style="display:  block; position: absolute; bottom: 85px; right: 85px;  width: 40px;" id="west"
+      style="display:  none; position: absolute; bottom: 85px; right: 85px;  width: 40px;" id="west"
       src="images/westdoor.PNG">
 
   </div>
