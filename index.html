@@ -28,6 +28,9 @@
 }
 
     window.onload = () => {
+      console.log("JR NOTE: you can find the passwords for North's rabbithole here: https://github.com/FarragoFiction/LitRPGSim/blob/master/src/CanvasFuckery/PasswordStorage.ts")
+      console.log(`%cJR NOTE: you can find the passwords for North's rabbithole here: https://github.com/FarragoFiction/LitRPGSim/blob/master/src/CanvasFuckery/PasswordStorage.ts Actually. Since the game might not handle local storage correctly on itch, maybe going to farragofiction.com directly is a better bet.`, "font-weight: bold;font-family: 'Courier New', monospace;color:#06FFC9; background: #346F3F; padding:10px; border-radius: 13px; font-size:13px;");
+
       if(getParameterByName("seerOfVoid", null)){
         const images = document.querySelectorAll("img");
         for(let img of images){
@@ -58,39 +61,43 @@
     }
 
     const goSouth = () => {
-      moveToLocation("/ZampanioSimSouth");
+      moveToLocation("http://farragofiction.com/ZampanioSimSouth");
     }
 
     const goOther = () => {
-      moveToLocation("/SettlersFromTheWest");
+      moveToLocation("http://farragofiction.com/SettlersFromTheWest");
 
     }
 
     const goEast = () => {
-      moveToLocation("/ZampanioSimEast");
+      moveToLocation("http://farragofiction.com/ZampanioSimEast");
     }
 
     const goNorth = () => {
-      moveToLocation("/ZampanioSimNorth");
+      moveToLocation("http://farragofiction.com/ZampanioSimNorth");
     }
 
     const goCenter = () => {
-      moveToLocation("/TheTruthAboutAlt");
+      moveToLocation("http://farragofiction.com/TheTruthAboutAlt");
     }
 
     const goSouthEast = () => {
-      moveToLocation("/ATranscript");
+      if (new Date().getDay() === 2) {//tuesday is also for D
+        moveToLocation("http://farragofiction.com/D.Log//");
+      } else {
+        moveToLocation("http://farragofiction.com/ATranscript");
+      }
     }
 
     const goCenterSouthEast = () => {
-      moveToLocation("/SecurityLog/cctv.html");
+      moveToLocation("http://farragofiction.com/SecurityLog/cctv.html");
     }
 
     const goSouthWest = () => {
       if (new Date().getDay() === 2) {//tuesday should be sbahj day
-        moveToLocation("/SBAHJGirlfriend/");
+        moveToLocation("http://farragofiction.com/SBAHJGirlfriend/");
       } else {
-        moveToLocation("/NagaGirlfriend/");
+        moveToLocation("http://farragofiction.com/NagaGirlfriend/");
       }
     }
   </script>
