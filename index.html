@@ -17,8 +17,7 @@
     const zampanio_key = "lp_route";
 
     const message = ".... ....  .. ...  . .....  . ...  ... ....  .. .  .. .  .. ....  ... ...  .. ....  .... ...  .... ....  .. ...  . .....  . ...  .. ...  .... ..  ..... ....  .... ...  . .  ... .  .. ....  .... ...";
-
-    const tapcode = new TapCode(message);
+    let tapcode;
 
     function getParameterByName(name, url) {
     if (!url) {
@@ -34,6 +33,7 @@
 
     window.onload = () => {
       console.log(`%cJR NOTE: you can find the passwords for North's rabbithole here: https://github.com/FarragoFiction/LitRPGSim/blob/master/src/CanvasFuckery/PasswordStorage.ts Actually. Since the game does not handle links correctly on itch, maybe going to http://farragofiction.com directly is a better bet.`, "font-weight: bold;font-family: 'Courier New', monospace;color:#06FFC9; background: #346F3F; padding:10px; border-radius: 13px; font-size:13px;");
+      tapcode = new TapCode(message, document.querySelector("body"));
 
       if(getParameterByName("seerOfVoid", null)){
         const images = document.querySelectorAll("img");
@@ -43,7 +43,9 @@
 
       }
       window.onclick = () => {
-        tapcode.playScratch();
+        if(!tapcode.ele){
+          tapcode.createElement();
+        }
         clickAudio.play();
         if (musicAudio.pause) {
           musicAudio.play();
