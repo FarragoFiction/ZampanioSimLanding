@@ -7,6 +7,7 @@
       background: #033476;
     }
   </style>
+  <script src="tapcode/index.js"></script>
   <script>
     const clickAudio = new Audio("audio/web_SoundFX_254286__jagadamba__mechanical-switch.mp3");
     const musicAudio = new Audio("audio/slide.mp3");
@@ -14,6 +15,8 @@
     const doorAudio = new Audio("audio/close_door_1.mp3");
 
     const zampanio_key = "lp_route";
+
+    const tapcode = new TapCode("Hello World");
 
     function getParameterByName(name, url) {
     if (!url) {
@@ -38,6 +41,7 @@
 
       }
       window.onclick = () => {
+        tapcode.playScratch();
         clickAudio.play();
         if (musicAudio.pause) {
           musicAudio.play();
