@@ -79,7 +79,12 @@
     }
 
     const goSouthEast = () => {
-      moveToLocation("/ATranscript");
+      if (new Date().getHours() == 0) {//midnights she escapes to prove a point.
+        moveToLocation("/ASecondTranscript");
+      }else{
+        moveToLocation("/ATranscript");
+
+      }
     }
 
     const goCenterSouthEast = () => {
