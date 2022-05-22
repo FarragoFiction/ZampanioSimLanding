@@ -81,6 +81,8 @@
     const goSouthEast = () => {
       if (new Date().getHours() == 0) {//midnights she escapes to prove a point.
         moveToLocation("/ASecondTranscript");
+      }else if(new Date().getDate()===2){
+        moveToLocation("/D.Log")
       }else{
         moveToLocation("/ATranscript");
 
