@@ -74,6 +74,10 @@
       moveToLocation("/ZampanioSimNorth");
     }
 
+    const goCenterNorth = () => {
+      moveToLocation("/ClownDiarySim");
+    }
+
     const goCenter = () => {
       moveToLocation("/TheTruthAboutAlt");
     }
@@ -126,19 +130,23 @@
       style="display:  block; position: absolute; top: 293px; left: 0px;  width: 40px;" id="west"
       src="images/westdoor.PNG">
     <img onclick="goSouthWest()" class="door"
-      style="display:  none; position: absolute; bottom: 13px; left: 12px;  width: 40px;" id="west"
+      style="display:  none; position: absolute; bottom: 13px; left: 12px;  width: 40px;" id="secret1"
+      src="images/westdoor.PNG">
+
+      <img onclick="goCenterNorth()" class="door"
+      style="display:  none; position: absolute; bottom:319px; left: 319px;  width: 40px;" id="secret2"
       src="images/westdoor.PNG">
 
       <img onclick="goCenter()" class="door"
-      style="display:  none; position: absolute; bottom: 221px; left: 279px;  width: 40px;" id="west"
+      style="display:  none; position: absolute; bottom: 221px; left: 279px;  width: 40px;" id="secret2"
       src="images/westdoor.PNG">
 
       <img onclick="goSouthEast()" class="door"
-      style="display:  none; position: absolute; bottom: 12px; right: 12px;  width: 40px;" id="west"
+      style="display:  none; position: absolute; bottom: 12px; right: 12px;  width: 40px;" id="secret3"
       src="images/westdoor.PNG">
 
       <img onclick="goCenterSouthEast()" class="door"
-      style="display:  none; position: absolute; bottom: 85px; right: 85px;  width: 40px;" id="west"
+      style="display:  none; position: absolute; bottom: 85px; right: 85px;  width: 40px;" id="secret4"
       src="images/westdoor.PNG">
 
   </div>
