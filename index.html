@@ -87,6 +87,8 @@
         moveToLocation("/ASecondTranscript");
       }else if(new Date().getDate()===2){
         moveToLocation("/D.Log")
+      }else if(new Date().getDate()===3){
+        moveToLocation("/ACensoredTranscript")
       }else{
         moveToLocation("/ATranscript");
 
@@ -95,6 +97,25 @@
 
     const goCenterSouthEast = () => {
       moveToLocation("/SecurityLog/cctv.html");
+    }
+
+    const goToTheMall = () => {
+      const date = new Date().getDay();
+      if (date === 0) {
+        moveToLocation("/TwoGayJokes/");
+      } else if(date === 1) {
+        moveToLocation("/BulletproofTheory/");
+      } else if(date === 2) {
+        moveToLocation("/UnifiedTheory/");
+      } else if(date === 3) {
+        moveToLocation("/AnUnSentLetter/");
+      } else if(date === 4) {
+        moveToLocation("/GhoulishThing/");
+      } else if(date === 5) {
+        moveToLocation("/TwoGayJokes/");
+      } else if(date === 6) {
+        moveToLocation("/TwoGayJokes/");
+      }
     }
 
     const goSouthWest = () => {
@@ -135,6 +156,10 @@
 
       <img onclick="goCenterNorth()" class="door"
       style="display:  none; position: absolute; bottom:319px; left: 319px;  width: 40px;" id="secret2"
+      src="images/westdoor.PNG">
+
+      <img onclick="goToTheMall()" class="door"
+      style="position: absolute; bottom:319px; left: 19px;  width: 40px;" id="secret2"
       src="images/westdoor.PNG">
 
       <img onclick="goCenter()" class="door"
