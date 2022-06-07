@@ -112,9 +112,11 @@
       } else if(date === 4) {
         moveToLocation("/GhoulishThing/");
       } else if(date === 5) {
-        moveToLocation("/TwoGayJokes/");
+        moveToLocation("/LightAndVoid/");
       } else if(date === 6) {
-        moveToLocation("/TwoGayJokes/");
+        moveToLocation("/LightAndVoid/?seerOfVoid=true/");
+      }else if (date.getHours() == 0){
+        moveToLocation("/LightAndVoid/?dearWitherby=true/");
       }
     }
 
