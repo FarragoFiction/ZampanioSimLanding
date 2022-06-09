@@ -89,6 +89,8 @@
         moveToLocation("/D.Log")
       }else if(new Date().getDate()===3){
         moveToLocation("/ACensoredTranscript")
+      }else if (date.getHours() == 0){
+        moveToLocation("/ACensoredTranscript/?seerOfVoid=true/"); //spooky times
       }else{
         moveToLocation("/ATranscript");
 
@@ -117,6 +119,8 @@
         moveToLocation("/LightAndVoid/?seerOfVoid=true/");
       }else if (date.getHours() == 0){
         moveToLocation("/LightAndVoid/?dearWitherby=true/");
+      }else{
+        moveToLocation("/TwoGayJokes/");
       }
     }
 
