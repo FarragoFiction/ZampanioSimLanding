@@ -75,7 +75,12 @@
     }
 
     const goCenterNorth = () => {
-      moveToLocation("/ClownDiarySim");
+      if (date === 0) {
+        moveToLocation("/AnxietySim");
+      }else{
+        moveToLocation("/ClownDiarySim");
+
+      }
     }
 
     const goCenter = () => {
