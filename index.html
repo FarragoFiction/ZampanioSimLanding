@@ -75,7 +75,7 @@
     }
 
     const goCenterNorth = () => {
-      if (date === 0) {
+      if (new Date().getDate() === 0) {
         moveToLocation("/AnxietySim");
       }else{
         moveToLocation("/ClownDiarySim");
@@ -96,7 +96,7 @@
         moveToLocation("/ACensoredTranscript")
       }else if(new Date().getDate()===4){
         moveToLocation("/APersonalTranscript")
-      }else if (date.getHours() == 0){
+      }else if (new Date().getHours() == 0){
         moveToLocation("/ACensoredTranscript/?seerOfVoid=true/"); //spooky times
       }else{
         moveToLocation("/ATranscript");
