@@ -71,7 +71,12 @@
     }
 
     const goNorth = () => {
-      moveToLocation("/ZampanioSimNorth");
+      if (new Date().getDate() %2) {
+        moveToLocation("/ZampanioSimNorth");
+      }else{
+        moveToLocation("/ZampanioSimNorthNorth");
+
+      }
     }
 
     const goCenterNorth = () => {
