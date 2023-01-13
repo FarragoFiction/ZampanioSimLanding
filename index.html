@@ -68,6 +68,12 @@
 
     const goEast = () => {
       moveToLocation("/ZampanioSimEast");
+      if (new Date().getDate() %3==0) {
+        moveToLocation("/ZampanioSimEast");
+      }else{
+        moveToLocation("/ZampanioSimEastEast");
+
+      }
     }
 
     const goNorth = () => {
@@ -82,6 +88,8 @@
     const goCenterNorth = () => {
       if (new Date().getDate() === 0) {
         moveToLocation("/AnxietySim");
+      }else if(new Date().getMonth()===6){
+        moveToLocation("/DearDiary")
       }else{
         moveToLocation("/ClownDiarySim");
 
@@ -129,8 +137,10 @@
         moveToLocation("/LightAndVoid/");
       } else if(date === 6) {
         moveToLocation("/LightAndVoid/?seerOfVoid=true/");
-      }else if (date.getHours() == 0){
+      }else if (date.getHours() == 12){
         moveToLocation("/LightAndVoid/?dearWitherby=true/");
+      }else if (date.getHours() == 0){
+        moveToLocation("/ThisHumanDiseaseCalledFriendship/");
       }else{
         moveToLocation("/TwoGayJokes/");
       }
@@ -191,6 +201,8 @@
       <img onclick="goCenterSouthEast()" class="door"
       style="display:  none; position: absolute; bottom: 85px; right: 85px;  width: 40px;" id="secret4"
       src="images/westdoor.PNG">
+
+      <div id="heyreddit_askmeanythingJune29th_itsmejadedresearcher_andthelinkis_https://www.reddit.com/r/IAmA/comments/vnxo8q/im_jr_author_of_a_sprawling_zampanio_fanwork/"> </div>
 
   </div>
 </body>
