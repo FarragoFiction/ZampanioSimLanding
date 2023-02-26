@@ -3,7 +3,7 @@
 <head>
   <title>ZampanioSim!!!</title>
   <style>
-    .visible{
+    .visible {
       background: #033476;
     }
   </style>
@@ -16,21 +16,21 @@
     const zampanio_key = "lp_route";
 
     function getParameterByName(name, url) {
-    if (!url) {
-      url = window.location.href;
-    }
-    name = name.replace(/[[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      if (!url) {
+        url = window.location.href;
+      }
+      name = name.replace(/[[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
 
     window.onload = () => {
-      if(getParameterByName("seerOfVoid", null)){
+      if (getParameterByName("seerOfVoid", null)) {
         const images = document.querySelectorAll("img");
-        for(let img of images){
+        for (let img of images) {
           img.classList.add("visible");
         }
 
@@ -44,8 +44,8 @@
 
       if (localStorage[zampanio_key]) {
         const doors = document.querySelectorAll(".door");
-        for(let door of doors){
-          door.style.display="block"
+        for (let door of doors) {
+          door.style.display = "block"
         }
       }
     }
@@ -58,7 +58,11 @@
     }
 
     const goSouth = () => {
-      moveToLocation("/ZampanioSimSouth");
+      if (new Date().getDate() % 2 == 0) {
+        moveToLocation("/ZampanioSimSouth");
+      } else {
+        moveToLocation("/ZampanioSimSouthSouth");
+      }
     }
 
     const goOther = () => {
@@ -67,33 +71,32 @@
     }
 
     const goEast = () => {
-      if (new Date().getDate() %3==0) {
+      if (new Date().getDate() % 3 == 0) {
         moveToLocation("/ZampanioSimEast");
-      }else{
+      } else {
         moveToLocation("/ZampanioSimEastEast");
 
       }
     }
 
     const goNorth = () => {
-      if (new Date().getDate() %2==0) {
+      if (new Date().getDate() % 2 == 0) {
         moveToLocation("/ZampanioSimNorth");
-      }else{
+      } else {
         moveToLocation("/ZampanioSimNorthNorth");
-
       }
     }
 
     const goCenterNorth = () => {
       if (new Date().getDate() === 0) {
         moveToLocation("/AnxietySim");
-      }else if(new Date().getMonth()===6){
+      } else if (new Date().getMonth() === 6) {
         moveToLocation("/DearDiary")
-      }else if(new Date().getDay()===6){
+      } else if (new Date().getDay() === 6) {
         moveToLocation("/FruitSim")
-      }else if(new Date().getDay() === 4){ //thursdays
+      } else if (new Date().getDay() === 4) { //thursdays
         moveToLocation("http://eyedolgames.com/Zampanini/")
-      }else{
+      } else {
         moveToLocation("/ClownDiarySim");
       }
     }
@@ -105,15 +108,15 @@
     const goSouthEast = () => {
       if (new Date().getHours() == 0) {//midnights she escapes to prove a point.
         moveToLocation("/ASecondTranscript");
-      }else if(new Date().getDate()===2){
+      } else if (new Date().getDate() === 2) {
         moveToLocation("/D.Log")
-      }else if(new Date().getDate()===3){
+      } else if (new Date().getDate() === 3) {
         moveToLocation("/ACensoredTranscript")
-      }else if(new Date().getDate()===4){
+      } else if (new Date().getDate() === 4) {
         moveToLocation("/APersonalTranscript")
-      }else if (new Date().getHours() == 0){
+      } else if (new Date().getHours() == 0) {
         moveToLocation("/ACensoredTranscript/?seerOfVoid=true/"); //spooky times
-      }else{
+      } else {
         moveToLocation("/ATranscript");
 
       }
@@ -127,23 +130,23 @@
       const date = new Date().getDay();
       if (date === 0) {
         moveToLocation("/TwoGayJokes/");
-      } else if(date === 1) {
+      } else if (date === 1) {
         moveToLocation("/BulletproofTheory/");
-      } else if(date === 2) {
+      } else if (date === 2) {
         moveToLocation("/UnifiedTheory/");
-      } else if(date === 3) {
+      } else if (date === 3) {
         moveToLocation("/AnUnSentLetter/");
-      } else if(date === 4) {
+      } else if (date === 4) {
         moveToLocation("/GhoulishThing/");
-      } else if(date === 5) {
+      } else if (date === 5) {
         moveToLocation("/LightAndVoid/");
-      } else if(date === 6) {
+      } else if (date === 6) {
         moveToLocation("/LightAndVoid/?seerOfVoid=true/");
-      }else if (date.getHours() == 12){
+      } else if (date.getHours() == 12) {
         moveToLocation("/LightAndVoid/?dearWitherby=true/");
-      }else if (date.getHours() == 0){
+      } else if (date.getHours() == 0) {
         moveToLocation("/ThisHumanDiseaseCalledFriendship/");
-      }else{
+      } else {
         moveToLocation("/TwoGayJokes/");
       }
     }
@@ -184,27 +187,28 @@
       style="display:  none; position: absolute; bottom: 13px; left: 12px;  width: 40px;" id="secret1"
       src="images/westdoor.PNG">
 
-      <img onclick="goCenterNorth()" class="door"
+    <img onclick="goCenterNorth()" class="door"
       style="display:  none; position: absolute; bottom:319px; left: 319px;  width: 40px;" id="secret2"
       src="images/westdoor.PNG">
 
-      <img onclick="goToTheMall()" class="door"
-      style="position: absolute; bottom:319px; left: 19px;  width: 40px;" id="secret2"
-      src="images/westdoor.PNG">
+    <img onclick="goToTheMall()" class="door" style="position: absolute; bottom:319px; left: 19px;  width: 40px;"
+      id="secret2" src="images/westdoor.PNG">
 
-      <img onclick="goCenter()" class="door"
+    <img onclick="goCenter()" class="door"
       style="display:  none; position: absolute; bottom: 221px; left: 279px;  width: 40px;" id="secret2"
       src="images/westdoor.PNG">
 
-      <img onclick="goSouthEast()" class="door"
+    <img onclick="goSouthEast()" class="door"
       style="display:  none; position: absolute; bottom: 12px; right: 12px;  width: 40px;" id="secret3"
       src="images/westdoor.PNG">
 
-      <img onclick="goCenterSouthEast()" class="door"
+    <img onclick="goCenterSouthEast()" class="door"
       style="display:  none; position: absolute; bottom: 85px; right: 85px;  width: 40px;" id="secret4"
       src="images/westdoor.PNG">
 
-      <div id="heyreddit_askmeanythingJune29th_itsmejadedresearcher_andthelinkis_https://www.reddit.com/r/IAmA/comments/vnxo8q/im_jr_author_of_a_sprawling_zampanio_fanwork/"> </div>
+    <div
+      id="heyreddit_askmeanythingJune29th_itsmejadedresearcher_andthelinkis_https://www.reddit.com/r/IAmA/comments/vnxo8q/im_jr_author_of_a_sprawling_zampanio_fanwork/">
+    </div>
 
   </div>
 </body>
