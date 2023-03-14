@@ -154,7 +154,7 @@
     const goSouthWest = () => {
       if (new Date().getDay() === 2) {//tuesday should be sbahj day
         moveToLocation("/SBAHJGirlfriend/");
-      }else if (new Date().getDay() %2 === 0){
+      }else if (new Date().getDay() %2 !== 0){
         moveToLocation("/MurderOnTheScorpiusExpressSim/");
 
       } else {
