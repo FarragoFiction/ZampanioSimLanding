@@ -80,10 +80,33 @@
 
       }
     }
+    const addNumToArrayWithKey = (key, target) => {
+      const tmp = valueAsArray(key);
+      tmp.push(target);
+      localStorage[key] = JSON.stringify(tmp);
+    }
+
+    const valueAsArray = (key) => {
+      if (localStorage[key]) {
+        return JSON.parse(localStorage[key]);
+      } else {
+        return initEmptyArrayAtKey(key);
+      }
+    }
+
+    const initEmptyArrayAtKey = (key) => {
+      const tmp = [];
+      localStorage[key] = JSON.stringify(tmp);
+      return tmp;
+    }
 
     const goNorth = () => {
-      localStorage.setItem("zampanio", true)
+      addNumToArrayWithKey("lp_route", 0)
       const date = new Date().getDate();
+      if(Math.random()<.01){
+        moveToLocation("/ZampanioSimNorthNorthNorthNorth")
+        return;
+      }
       if (date % 3 == 0) {
         moveToLocation("/ZampanioSimNorth");
       } else if (date % 1 === 0) {
