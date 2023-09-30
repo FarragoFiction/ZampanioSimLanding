@@ -6,6 +6,27 @@
     .visible {
       background: #033476;
     }
+
+    .scarecrow {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      animation: pumpkin-flicker 10s ease-in infinite;
+    }
+
+    @keyframes pumpkin-flicker {
+      0% {
+        filter: saturate(1.0)
+      }
+
+      50% {
+        filter: saturate(1.5)
+      }
+
+      0% {
+        filter: saturate(1.0)
+      }
+    }
   </style>
   <script>
     const clickAudio = new Audio("audio/web_SoundFX_254286__jagadamba__mechanical-switch.mp3");
@@ -28,6 +49,7 @@
     }
 
     window.onload = () => {
+      handleInfection();
       if (getParameterByName("seerOfVoid", null)) {
         const images = document.querySelectorAll("img");
         for (let img of images) {
@@ -47,6 +69,21 @@
         for (let door of doors) {
           door.style.display = "block"
         }
+      }
+    }
+
+    const handleInfection = () => {
+      if (new Date().getMonth() === 9) {
+        console.log("JR NOTE: Happy Halloween :) :) ;)")
+        const a = document.createElement("a");
+        a.href ="http://lavinraca.eyedolgames.com/";
+
+        const ele = document.createElement("img");
+        ele.src = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/scarecrow.png";
+        ele.className = "scarecrow";
+        const body = document.querySelector("body");
+        body.append(a);
+        a.append(ele);
       }
     }
 
@@ -103,7 +140,7 @@
     const goNorth = () => {
       addNumToArrayWithKey("lp_route", 0)
       const date = new Date().getDate();
-      if(Math.random()<.01){
+      if (Math.random() < .01) {
         moveToLocation("/ZampanioSimNorthNorthNorthNorth")
         return;
       }
