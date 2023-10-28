@@ -3,6 +3,7 @@
 <head>
   <title>ZampanioSim!!!</title>
   <style>
+    
     .visible {
       background: #033476;
     }
@@ -49,6 +50,8 @@
     }
 
     window.onload = () => {
+      confirm(`You are entering a place that may make you feel uneasy. Obsession is a dangerous thing. You may wish to turn back.`)
+
       handleInfection();
       if (getParameterByName("seerOfVoid", null)) {
         const images = document.querySelectorAll("img");
