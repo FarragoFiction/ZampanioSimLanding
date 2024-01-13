@@ -3,7 +3,6 @@
 <head>
   <title>ZampanioSim!!!</title>
   <style>
-    
     .visible {
       background: #033476;
     }
@@ -36,6 +35,8 @@
     const doorAudio = new Audio("audio/close_door_1.mp3");
 
     const zampanio_key = "lp_route";
+    const zampanio_key2 = "ITHASCOLONIZEDYOURMINDALREADY";
+
 
     function getParameterByName(name, url) {
       if (!url) {
@@ -50,7 +51,8 @@
     }
 
     window.onload = () => {
-      confirm(`You are entering a place that may make you feel uneasy. Obsession is a dangerous thing. You may wish to turn back.`)
+      confirm(`You are entering a place that may make you feel uneasy. Obsession is a dangerous thing. You may wish to turn back.`);
+      localStorage.setItem(zampanio_key2, true)
 
       handleInfection();
       if (getParameterByName("seerOfVoid", null)) {
@@ -67,7 +69,7 @@
         }
       }
 
-      if (localStorage[zampanio_key]) {
+      if (localStorage[zampanio_key] || localStorage[zampanio_key2]) {
         const doors = document.querySelectorAll(".door");
         for (let door of doors) {
           door.style.display = "block"
@@ -79,7 +81,7 @@
       if (new Date().getMonth() === 9) {
         console.log("JR NOTE: Happy Halloween :) :) ;)")
         const a = document.createElement("a");
-        a.href ="http://lavinraca.eyedolgames.com/";
+        a.href = "http://lavinraca.eyedolgames.com/";
 
         const ele = document.createElement("img");
         ele.src = "http://farragofiction.com/ZampanioGoshShouldYouTrustThis/scarecrow.png";
@@ -113,7 +115,10 @@
     }
 
     const goEast = () => {
-      if (new Date().getDate() % 3 == 0) {
+
+      if (date.getDay() === 2) {
+        moveToLocation("/ZampanioSimEastEast"); //auto redirects to CatalystBathroomSim on tuesdays (what day of the week halloween was that year)
+      }else if (new Date().getDate() % 3 == 0) {
         moveToLocation("/ZampanioSimEast");
       } else {
         moveToLocation("/ZampanioSimEastEast");
@@ -147,7 +152,9 @@
         moveToLocation("/ZampanioSimNorthNorthNorthNorth")
         return;
       }
-      if (date % 3 == 0) {
+      if (date.getDay() === 2) {
+        moveToLocation("/ZampanioSimNorthNorthNorthNorth"); //auto redirects to Gopher on tuesdays (what day of the week halloween was that year)
+      } else if (date % 3 == 0) {
         moveToLocation("/ZampanioSimNorth");
       } else if (date % 1 === 0) {
         moveToLocation("/ZampanioSimNorthNorthNorth"); //auto redirects to Eyedlr
