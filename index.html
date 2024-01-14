@@ -52,7 +52,6 @@
 
     window.onload = () => {
       confirm(`You are entering a place that may make you feel uneasy. Obsession is a dangerous thing. You may wish to turn back.`);
-      localStorage.setItem(zampanio_key2, true)
 
       handleInfection();
       if (getParameterByName("seerOfVoid", null)) {
@@ -74,6 +73,8 @@
         for (let door of doors) {
           door.style.display = "block"
         }
+      }else{
+        localStorage.setItem(zampanio_key2, true)
       }
     }
 
@@ -116,8 +117,8 @@
 
     const goEast = () => {
 
-      if (date.getDay() === 2) {
-        moveToLocation("/ZampanioSimEastEast"); //auto redirects to CatalystBathroomSim on tuesdays (what day of the week halloween was that year)
+      if (new Date().getDay() === 2) {
+        moveToLocation("/ZampanioSimEastEastEast"); //auto redirects to CatalystBathroomSim on tuesdays (what day of the week halloween was that year)
       }else if (new Date().getDate() % 3 == 0) {
         moveToLocation("/ZampanioSimEast");
       } else {
@@ -152,8 +153,8 @@
         moveToLocation("/ZampanioSimNorthNorthNorthNorth")
         return;
       }
-      if (date.getDay() === 2) {
-        moveToLocation("/ZampanioSimNorthNorthNorthNorth"); //auto redirects to Gopher on tuesdays (what day of the week halloween was that year)
+      if (new Date().getDay() === 2) {
+        moveToLocation("/ZampanioSimNorthNorthNorthNorthNorth"); //auto redirects to Gopher on tuesdays (what day of the week halloween was that year)
       } else if (date % 3 == 0) {
         moveToLocation("/ZampanioSimNorth");
       } else if (date % 1 === 0) {
