@@ -54,6 +54,8 @@
       confirm(`You are entering a place that may make you feel uneasy. Obsession is a dangerous thing. You may wish to turn back.`);
 
       handleInfection();
+      handleBirthday();
+
       if (getParameterByName("seerOfVoid", null)) {
         const images = document.querySelectorAll("img");
         for (let img of images) {
@@ -75,6 +77,17 @@
         }
       }else{
         localStorage.setItem(zampanio_key2, true)
+      }
+    }
+
+    //april fools, 1972 is in THEORY when zampanio was created
+    //this seems like a BLATANT LIE
+    //but hell man, i was already celebrating april fools yearly with my sims
+    //why stop now
+    const handleBirthday = () => {
+      if (new Date().getMonth() === 3 && new Date().getDate()===1) {
+        window.alert("Happy Birthday Zampanio!!!");
+        window.location.href = "http://farragofiction.com/LifeSim/";
       }
     }
 
