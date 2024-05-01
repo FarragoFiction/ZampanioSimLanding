@@ -165,14 +165,14 @@
       addNumToArrayWithKey("lp_route", 0)
       const date = new Date().getDate();
       if (Math.random() < .01) {
-        moveToLocation("/ZampanioSimNorthNorthNorthNorth")
+        moveToLocation("/ZampanioSimNorthNorthNorthNorth") //always a small random chance of corrupt clownery
         return;
       }
       if (new Date().getDay() === 2) {
         moveToLocation("/ZampanioSimNorthNorthNorthNorthNorth"); //auto redirects to Gopher on tuesdays (what day of the week halloween was that year)
       } else if (date % 3 == 0) {
         moveToLocation("/ZampanioSimNorth");
-      } else if (date % 1 === 0) {
+      } else if (date % 3 === 1) {
         moveToLocation("/ZampanioSimNorthNorthNorth"); //auto redirects to Eyedlr
       } else {
         moveToLocation("/ZampanioSimNorthNorth");
