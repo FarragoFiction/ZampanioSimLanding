@@ -75,7 +75,7 @@
         for (let door of doors) {
           door.style.display = "block"
         }
-      }else{
+      } else {
         localStorage.setItem(zampanio_key2, true)
       }
     }
@@ -85,9 +85,17 @@
     //but hell man, i was already celebrating april fools yearly with my sims
     //why stop now
     const handleBirthday = () => {
-      if (new Date().getMonth() === 3 && new Date().getDate()===1) {
+      if (new Date().getMonth() === 3 && new Date().getDate() === 1) {
+
         window.alert("Happy Birthday Zampanio!!!");
-        window.location.href = "http://farragofiction.com/LifeSim/";
+
+        const odds = Math.random();
+        if (odds > .9) {
+          window.location.href = "http://farragofiction.com/LifeSim/";
+        } else if (odds > .75) {
+          window.location.href = "http://farragofiction.com/CatalystsBathroomSim/EAST/NORTH/SOUTH/SOUTH/NORTH/NORTH/SOUTH/SOUTH/SOUTH/EAST/EAST/SOUTH/NORTH/bathroom.html";
+        }
+        //otherwise do nothing
       }
     }
 
@@ -126,7 +134,14 @@
     }
 
     const goOther = () => {
-      moveToLocation("/SettlersFromTheWest");
+      if (new Date().getMonth() === 3 && new Date().getDate() === 1) {
+        //have fun being confused :) :) ;)  (IC had an idea on wibby day and it stuck)
+        moveToLocation("http://farragofiction.com/CatalystsBathroomSim/EAST/NORTH/SOUTH/SOUTH/NORTH/NORTH/SOUTH/SOUTH/SOUTH/EAST/EAST/SOUTH/NORTH/bathroom.html");
+
+      } else {
+
+        moveToLocation("/SettlersFromTheWest");
+      }
 
     }
 
@@ -134,7 +149,7 @@
 
       if (new Date().getDay() === 2) {
         moveToLocation("/ZampanioSimEastEastEast"); //auto redirects to CatalystBathroomSim on tuesdays (what day of the week halloween was that year)
-      }else if (new Date().getDate() % 3 == 0) {
+      } else if (new Date().getDate() % 3 == 0) {
         moveToLocation("/ZampanioSimEast");
       } else {
         moveToLocation("/ZampanioSimEastEast");
@@ -160,7 +175,7 @@
       localStorage[key] = JSON.stringify(tmp);
       return tmp;
     }
-
+    //http://knucklessux.com/PuzzleBox/Secrets/WatcherOfThreads/dreams.pdf
     const goNorth = () => {
       addNumToArrayWithKey("lp_route", 0)
       const date = new Date().getDate();
