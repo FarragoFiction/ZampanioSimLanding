@@ -5,6 +5,7 @@
   <style>
     .visible {
       background: #033476;
+      display: block !important;
     }
 
     .help-icon {
@@ -74,6 +75,11 @@
       if (getParameterByName("seerOfVoid", null)) {
         const images = document.querySelectorAll("img");
         for (let img of images) {
+          img.classList.add("visible");
+        }
+
+        const icons = document.querySelectorAll(".help-icon");
+        for (let img of icons) {
           img.classList.add("visible");
         }
 
@@ -189,6 +195,11 @@
       const tmp = [];
       localStorage[key] = JSON.stringify(tmp);
       return tmp;
+    }
+
+    //west is the fourth wall, so here's how you can directly contribute to zampanio while also being linked to by me
+    const helpOther = ()=>{
+      window.location = Math.random() >0.5? "https://zampaniosim.fandom.com/wiki/Zampanio": "https://zampaniosim.miraheze.org/wiki/Main_Page";
     }
 
     const helpNorth = ()=>{
@@ -320,6 +331,17 @@
     <img onclick="goEast()" class="door"
       style="display: none; width: 40px;  position: absolute; top: 293px; right: 0px;" id="east"
       src="images/eastdoor.PNG">
+
+      <svg onclick="helpOther()" class="help-icon" style="display: none; left: -28px;top: 268px;" xmlns="http://www.w3.org/2000/svg"
+      enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#5f6368">
+      <g>
+        <rect fill="none" height="24" width="24" />
+      </g>
+      <g>
+        <path
+          d="M11.07,12.85c0.77-1.39,2.25-2.21,3.11-3.44c0.91-1.29,0.4-3.7-2.18-3.7c-1.69,0-2.52,1.28-2.87,2.34L6.54,6.96 C7.25,4.83,9.18,3,11.99,3c2.35,0,3.96,1.07,4.78,2.41c0.7,1.15,1.11,3.3,0.03,4.9c-1.2,1.77-2.35,2.31-2.97,3.45 c-0.25,0.46-0.35,0.76-0.35,2.24h-2.89C10.58,15.22,10.46,13.95,11.07,12.85z M14,20c0,1.1-0.9,2-2,2s-2-0.9-2-2c0-1.1,0.9-2,2-2 S14,18.9,14,20z" />
+      </g>
+    </svg>
     <img onclick="goOther()" class="door"
       style="display:  block; position: absolute; top: 293px; left: 0px;  width: 40px;" id="west"
       src="images/westdoor.PNG">
