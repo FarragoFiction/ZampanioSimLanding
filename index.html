@@ -258,7 +258,9 @@
         moveToLocation("/TheHarvestDreamsOfZampanio"); //mondays are for her, because she works
       } else if (new Date().getDate() === 31) {
         moveToLocation("/TheHarvestDreamsOfZampanio?mode=bigbook"); //halloween arc number
-      } else {
+      } else if (new Date().getDay() === 4) {
+        moveToLocation("http://eyedolgames.com/GenericMimicSite/"); //day i finally made a template for eyedolgames instead of doing it bespoke each time
+      }  else {
         moveToLocation("/TheTruthAboutAlt");
       }
 
