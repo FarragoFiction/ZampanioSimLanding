@@ -115,7 +115,15 @@
       if (new Date().getMonth() === 3 && new Date().getDate() === 1) {
 
         window.alert("Happy Birthday Zampanio!!!");
+        const images = document.querySelectorAll("img");
+        for (let img of images) {
+          img.classList.add("visible");
+        }
 
+        const icons = document.querySelectorAll(".help-icon");
+        for (let img of icons) {
+          img.classList.add("visible");
+        }
         const odds = Math.random();
         if (odds > .9) {
           window.location.href = "http://farragofiction.com/LifeSim/";
@@ -260,7 +268,9 @@
         moveToLocation("/TheHarvestDreamsOfZampanio?mode=bigbook"); //halloween arc number
       } else if (new Date().getDay() === 4) {
         moveToLocation("http://eyedolgames.com/GenericMimicSite/"); //day i finally made a template for eyedolgames instead of doing it bespoke each time
-      }  else {
+      } else if (new Date().getDay() === 6) { //just after friday
+        moveToLocation("http://farragofiction.com/CatalystsBathroomSim/NORTH/NORTH/NORTH/NORTH/NORTH/NORTH/bathroom.html"); //http://farragofiction.com/ColonistsEyes5/i_am_so_bad_at_following_my_own_rules.png    http://farragofiction.com/ColonistsEyes5/i_am_so_bad_at_following_my_own_rules2.png
+      } else {
         moveToLocation("/TheTruthAboutAlt");
       }
 
