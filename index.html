@@ -126,7 +126,7 @@
         }
         const odds = Math.random();
         if (odds > .9) {
-          window.location.href = "http://farragofiction.com/LifeSim/";
+          window.location.href = "http://farragofiction.com/AdventureSimWest/";
         } else if (odds > .75) {
           window.location.href = "http://farragofiction.com/CatalystsBathroomSim/EAST/NORTH/SOUTH/SOUTH/NORTH/NORTH/SOUTH/SOUTH/SOUTH/EAST/EAST/SOUTH/NORTH/bathroom.html";
         }
@@ -184,6 +184,8 @@
 
       if (new Date().getDay() === 2) {
         moveToLocation("/ZampanioSimEastEastEast"); //auto redirects to CatalystBathroomSim on tuesdays (what day of the week halloween was that year)
+      } else if (new Date().getDay() === 1) {
+        moveToLocation("/ZampanioSimEastEastEastEast"); //auto redirects to MallSim on mondays (the day it released and its favorite day (god does mallsim hate fridays))
       } else if (new Date().getDate() % 3 == 0) {
         moveToLocation("/ZampanioSimEast");
       } else {
