@@ -258,7 +258,7 @@
         moveToLocation("/FruitSim")
       } else if (new Date().getDay() === 4) { //thursdays
         moveToLocation("http://eyedolgames.com/Zampanini/")
-      } else if (new Date().getDay() === 5) {
+      } else if (new Date().getDay() === 5 || new Date().getMonth() === 3) {
         moveToLocation("http://farragofiction.com/MallSim/rabbithole.html?importantWords=the+door+is+a+jar")
       } else {
         moveToLocation("/ClownDiarySim");
@@ -317,9 +317,9 @@
         moveToLocation("/LightAndVoid/");
       } else if (date === 6) {
         moveToLocation("/LightAndVoid/?seerOfVoid=true/");
-      } else if (date.getHours() == 12) {
+      } else if (new Date().getHours() == 12) {
         moveToLocation("/LightAndVoid/?dearWitherby=true/");
-      } else if (date.getHours() == 0) {
+      } else if (new Date().getHours() == 0) {
         moveToLocation("/ThisHumanDiseaseCalledFriendship/");
       } else {
         moveToLocation("/TwoGayJokes/");
