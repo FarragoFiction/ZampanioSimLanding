@@ -243,7 +243,7 @@
       } else if (date % 3 == 0) {
         moveToLocation("/ZampanioSimNorth");
       } else if (date % 3 === 1) {
-        moveToLocation("/ZampanioSimNorthNorthNorth"); //auto redirects to Eyedlr
+        moveToLocation("http://farragofiction.com/CatalystsBathroomSim/NORTH/NORTH/NORTH/NORTH/NORTH/bathroom.html"); //text adventure sim
       } else {
         moveToLocation("/ZampanioSimNorthNorth");
       }
@@ -256,8 +256,6 @@
         moveToLocation("/DearDiary")
       } else if (new Date().getDay() === 6) {
         moveToLocation("/FruitSim")
-      } else if (new Date().getDay() === 4) { //thursdays
-        moveToLocation("http://eyedolgames.com/Zampanini/")
       } else if (new Date().getDay() === 5 || new Date().getMonth() === 3) {
         moveToLocation("http://farragofiction.com/MallSim/rabbithole.html?importantWords=the+door+is+a+jar")
       } else {
@@ -270,8 +268,6 @@
         moveToLocation("/TheHarvestDreamsOfZampanio"); //mondays are for her, because she works
       } else if (new Date().getDate() === 31) {
         moveToLocation("/TheHarvestDreamsOfZampanio?mode=bigbook"); //halloween arc number
-      } else if (new Date().getDay() === 4) {
-        moveToLocation("http://eyedolgames.com/GenericMimicSite/"); //day i finally made a template for eyedolgames instead of doing it bespoke each time
       } else if (new Date().getDay() === 6) { //just after friday
         moveToLocation("http://farragofiction.com/CatalystsBathroomSim/NORTH/NORTH/NORTH/NORTH/NORTH/NORTH/bathroom.html"); //http://farragofiction.com/ColonistsEyes5/i_am_so_bad_at_following_my_own_rules.png    http://farragofiction.com/ColonistsEyes5/i_am_so_bad_at_following_my_own_rules2.png
       } else {
