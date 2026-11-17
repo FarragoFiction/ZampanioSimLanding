@@ -195,7 +195,7 @@
         memes = tmp.map((i) => dir + i);
       }
 
-      await sleep(1000)
+      await sleep(getRandomNumberBetween(1000, 13000))
       clickAudio.src = pickFrom(memes);
       clickAudio.onpause = () => {
         clickAudio.src = pickFrom(memes);
