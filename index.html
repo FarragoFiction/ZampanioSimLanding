@@ -50,7 +50,7 @@
     //https://www.tumblr.com/derinthescarletpescatarian/766927606238085120/that-just-gives-you-anxiety-which-to-be-fair-is?source=share <-- literally doc slaughter core
     const clickAudio = new Audio("audio/web_SoundFX_254286__jagadamba__mechanical-switch.mp3");
     const musicAudio = new Audio("audio/slide.mp3");
-    musicAudio.volume = 0.25;
+    musicAudio.volume = 0.15;
     const doorAudio = new Audio("audio/close_door_1.mp3");
 
     const zampanio_key = "lp_route";
@@ -101,6 +101,7 @@
         }
         document.querySelector("#help-south").style.display = "block";
         document.querySelector("#help-east").style.display = "block";
+        handleMemes();
 
       } else {
         localStorage.setItem(zampanio_key2, true)
@@ -178,6 +179,39 @@
         moveToLocation("/SettlersFromTheWest");
       }
 
+    }
+
+    let memes = [];
+
+
+    //wait a random amount of time and play an audio clip
+    //this should only be called if they've already been down the rabbit hole, btw
+    const handleMemes = async () => {
+      console.log("JR NOTE: handle memes")
+      const dir = "http://farragofiction.com/CatalystsBathroomSim/audio_utils/weird_sounds/MemeSpam/"
+
+      if (!memes.length) {
+        const tmp = await getAudio(dir);
+        memes = tmp.map((i) => dir + i);
+      }
+
+      await sleep(1000)
+      clickAudio.src = pickFrom(memes);
+      clickAudio.onpause = () => {
+        clickAudio.src = pickFrom(memes);
+      }
+    }
+
+    const sleep = (ms) => {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    const getRandomNumberBetween = (min, max) => {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    const pickFrom = (array) => {
+      return array[getRandomNumberBetween(0, array.length - 1)];
     }
 
     const goEast = () => {
@@ -332,6 +366,86 @@
         moveToLocation("/NagaGirlfriend/");
       }
     }
+
+    //key, value status
+    const cachedAudio = {}
+    const audioExtensions = [
+      "mp3", "wav"
+    ];
+    const filePatternAudio = new RegExp('<a href="([^?]*?)">', 'g');
+
+    const extensionPatternAudio = new RegExp(`\\\.(${audioExtensions.join("|")})\$`);
+
+
+    const getAudio = async (url) => {
+      //console.log("JR NOTE: getting audio for url", url)
+      if (cachedAudio[url]) {
+        return cachedAudio[url];
+      }
+
+      let promise = new Promise(async (resolve, reject) => {
+        try {
+          const rawText = await httpGetAsync(url);
+
+          let files = [];
+          const match = rawText.matchAll(filePatternAudio);
+          const matches = Array.from(match, (res) => res);
+          for (let m of matches) {
+            const item = m[1];
+            if (item.match(extensionPatternAudio)) {
+              files.push(item);
+            }
+          }
+          cachedAudio[url] = files;
+          //console.log("JR NOTE: returned from network for", url)
+          resolve(files);
+        } catch (e) {
+          console.log("JR NOTE: error", e)
+          reject();
+          return [];
+        }
+      })
+      cachedAudio[url] = promise;
+      return promise;
+    }
+
+
+    //async, you'll want to await this.
+    //since using this will mean you don't have anything on screen yet, you'll want some kinda placeholder
+    const httpGetAsync = async (theUrl) => {
+      return new Promise(function (resolve, reject) {
+
+        let xhr = new XMLHttpRequest();
+        try {
+          xhr.open("get", theUrl);
+
+          xhr.onload = function () {
+            if (this.status >= 200 && this.status < 300) {
+              resolve(xhr.response);
+            } else {
+              //window.alert("AN UNKNOWN NETWORK ERROR HAS OCCURED")
+              reject({
+                status: this.status,
+                statusText: xhr.statusText
+              });
+            }
+          };
+          xhr.onerror = function () {
+            //window.alert("AN UNKNOWN NETWORK ERROR HAS OCCURED")
+            reject({
+              status: this.status,
+              statusText: xhr.statusText
+            });
+          };
+          xhr.send();
+        } catch (e) {
+          console.error("JR NOTE: found a caught error:" + e);
+          //window.alert("AN UNKNOWN NETWORK ERROR HAS OCCURED")
+          return `[]`;
+        }
+      });
+    }
+
   </script>
 
   <style>
